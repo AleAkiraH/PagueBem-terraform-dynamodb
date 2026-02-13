@@ -44,6 +44,17 @@ resource "aws_dynamodb_table" "usuarios" {
     type = "S"
   }
 
+  attribute {
+    name = "nome_usuario"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "nome_usuario-index"
+    hash_key        = "nome_usuario"
+    projection_type = "ALL"
+  }
+
   point_in_time_recovery {
     enabled = var.enable_pitr
   }
