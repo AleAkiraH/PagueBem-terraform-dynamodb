@@ -32,10 +32,10 @@ provider "aws" {
 }
 
 # =============================================================================
-# Tabela: Usuarios
+# Tabela: PagueBem-Usuarios
 # =============================================================================
 resource "aws_dynamodb_table" "usuarios" {
-  name         = "Usuarios-${var.environment}"
+  name         = "PagueBem-Usuarios-${var.environment}"
   billing_mode = var.billing_mode
   hash_key     = "usuario_id"
 
@@ -53,15 +53,15 @@ resource "aws_dynamodb_table" "usuarios" {
   }
 
   tags = {
-    Name = "Usuarios-${var.environment}"
+    Name = "PagueBem-Usuarios-${var.environment}"
   }
 }
 
 # =============================================================================
-# Tabela: QrCodeItens
+# Tabela: PagueBem-Produtos
 # =============================================================================
-resource "aws_dynamodb_table" "qrcode_itens" {
-  name         = "QrCodeItens-${var.environment}"
+resource "aws_dynamodb_table" "produtos" {
+  name         = "PagueBem-Produtos-${var.environment}"
   billing_mode = var.billing_mode
   hash_key     = "item_id"
 
@@ -90,6 +90,6 @@ resource "aws_dynamodb_table" "qrcode_itens" {
   }
 
   tags = {
-    Name = "QrCodeItens-${var.environment}"
+    Name = "PagueBem-Produtos-${var.environment}"
   }
 }
